@@ -31,21 +31,21 @@ function Header() {
     }
 
     return (
-        <Navbar bg="light" expand="lg">
-            <Navbar.Brand href="#home">LOGO</Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="mr-auto">
-                    {/* just to show how the text would be shown live */}
-                    <Nav.Link href="#home">Home <small>{searchVal ? `[${searchVal}]` : ''}</small></Nav.Link>
-                </Nav>
-                <Form inline>
-                    <FormControl onChange={handleChange} type="text" placeholder="Search" className="mr-sm-2" />
-                    <Button variant="outline-success" onClick={onSearchClick}>Search</Button>
-                </Form>
-            </Navbar.Collapse>
-        </Navbar>
-
+        <>
+            <Navbar bg="light" className="sticky-menu z-index-1" expand="lg">
+                <Navbar.Brand className="pointer" onClick={()=>setData('', "search")}>DREW NEWS</Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="mr-auto">
+                      
+                    </Nav>
+                    <Form inline onSubmit={onSearchClick}>
+                        <FormControl onChange={handleChange} type="text" placeholder="Search" className="mr-sm-2" />
+                        <Button variant="outline-success" onClick={onSearchClick}>Search</Button>
+                    </Form>
+                </Navbar.Collapse>
+            </Navbar>
+        </>
     );
 }
 
