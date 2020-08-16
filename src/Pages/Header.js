@@ -1,15 +1,10 @@
 import React, { useState } from 'react'
-import Nav from 'react-bootstrap/Nav'
 import { Link } from 'react-router-dom';
-import UrlCall from './../ContextApi/UrlCall'
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
-import FormControl from 'react-bootstrap/FormControl'
-import Navbar from 'react-bootstrap/Navbar'
-import NavDropdown from 'react-bootstrap/NavDropdown'
-import UseBaseContext from './../ContextApi/UseBaseContext'
+import UrlCall from '../ContextApi/UrlCall'
+import UseBaseContext from '../ContextApi/UseBaseContext'
+import { Button, Form, Nav, Navbar, NavbarBrand, NavItem, InputGroup, Input, InputGroupAddon } from 'reactstrap';
 
-function Header() {
+const Header = ()=> {
     /* get the context instance */
     const { setData, getData } = UseBaseContext();
 
@@ -22,7 +17,8 @@ function Header() {
     }
 
     //handle the search click button
-    function onSearchClick() {
+    function onSearchClick(e) {
+        e.preventDefault();
         /**
          * Standard way to set or get the data
          * ACROSS THE UNIVERSE!
@@ -31,21 +27,21 @@ function Header() {
     }
 
     return (
-        <>
-            <Navbar bg="light" className="sticky-menu z-index-1" expand="lg">
-                <Navbar.Brand className="pointer" onClick={()=>setData('', "search")}>DREW NEWS</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="mr-auto">
-                      
-                    </Nav>
-                    <Form inline onSubmit={onSearchClick}>
-                        <FormControl onChange={handleChange} type="text" placeholder="Search" className="mr-sm-2" />
-                        <Button variant="outline-success" onClick={onSearchClick}>Search</Button>
-                    </Form>
-                </Navbar.Collapse>
-            </Navbar>
-        </>
+        <Navbar className="sticky-menu z-index-1" color="dark" light expand="md">
+            <NavbarBrand className="text-white" href="/"><b>GB</b>News</NavbarBrand>
+            <Nav className="right-search">
+                <NavItem>
+                    <Form onSubmit={onSearchClick}>
+                            <InputGroup>
+                                <Input placeholder="Search" onChange={handleChange} />
+                                <InputGroupAddon addonType="append">
+                                    <Button onClick={onSearchClick} color="secondary">Search</Button>
+                                </InputGroupAddon>
+                            </InputGroup>
+                     </Form>     
+                </NavItem>
+            </Nav>
+        </Navbar>
     );
 }
 

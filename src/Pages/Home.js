@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import UseBaseContext from './../ContextApi/UseBaseContext'
 import UrlCall from '../ContextApi/UrlCall'
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
 import { limitString } from './../Utility/Utility'
 import CardNews from './../Components/CardNews'
-import { Container, Row, Col } from 'reactstrap';
+import { Button, Container, Row, Col } from 'reactstrap';
 
 /**
  * based on props.number decide which of the column to show
@@ -45,10 +43,16 @@ function Home() {
             defaultCall().then((resp)=>{
                 setColData(resp);
                 setLoader(false);
+            }, (e)=>{
+                console.error(e);
+                setLoader(false);
             });
         }else if(searchTerm){
             getSearchResult(searchTerm).then((resp)=>{
                 setColData(resp);
+                setLoader(false);
+            }, (e)=>{
+                console.error(e);
                 setLoader(false);
             });
         }    

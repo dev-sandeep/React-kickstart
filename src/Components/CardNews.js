@@ -14,17 +14,16 @@ const CardNews = (props)=>{
     return (
         <section className="news-tile">
             <Card className="make-it-slow">
-                {/* <CardImg top width="100%" src={loadingImgSrc} alt="Card image cap" /> */}
                 <ImageContainer preload={loadingImgSrc} src={props.image} />
                 
                 <CardBody>
-                    <CardTitle>{props.title}</CardTitle>
+                    <CardTitle className="card-title-text">{props.title}</CardTitle>
                     <CardText className="font-200">
-                        <div className="since">
-                            {props.source}
+                        <span className="since">
+                            <span className="source">{props.source}</span>
                             {' | '}
                             <Moment fromNow>{props.time}</Moment>    
-                        </div>
+                        </span>
                         {props.description}
                     </CardText>
                     <div className="text-right">

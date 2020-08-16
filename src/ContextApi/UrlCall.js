@@ -1,5 +1,5 @@
 import Axios from 'axios'
-import UseBaseContext from './../ContextApi/UseBaseContext'
+import UseBaseContext from './UseBaseContext'
 
 function UrlCall() {
     const {
