@@ -10,7 +10,7 @@
     "axios": "^0.19.2",
     "chai": "^4.2.0",
     "electron-is-dev": "^1.1.0",
-    "got": "^7.1.0",
+    "got": "^11.8.5",
     "moment-timezone": "^0.5.31",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
